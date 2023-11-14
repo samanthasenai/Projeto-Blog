@@ -1,0 +1,20 @@
+{% extends 'modelo.html' %}
+{% block conteudo %}
+<div id="postagem">
+    {% if not(posts) %}
+    <h2>Não há postagens nesse Blog!</h2>
+    {% else %}
+    {% for post in posts %}
+    <div class="boxpost">
+        {% if login %}
+        <a href="/editar/{{ post['id']}}" class="editar"><i class="bi bi-pencil-square text-white fs-5"></i></a>
+        <a href="/excluir/{{ post['id'] }}" class="excluir" onclick="return confirm('Você tem certeza de que deseja excluir essa postagem?')"><i class="bi bi-trash3-fill text-white fs-5"  ></i></a>
+        {% endif %}
+
+        <h2>{{ post['titulo'] }}</h2>
+        <p>{{ post['conteudo'] }}</p>
+    </div>
+    {% endfor %}
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'modelo.html' %}
+{% block conteudo %}
+<div id="novopost">
+    <form action="/editpost" method="post">
+        <h2>Editar sua postagem:</h2>
+        <label>Título do Post:</label><br>
+        {% for post in posts %}
+        <input type="text" name="titulo" id="titulo" required value="{{ post['titulo'] }}"><br><br>
+        <label>Conteúdo do Post:</label><br>
+        <textarea name="conteudo" id="conteudo" cols="30" rows="5" required style="resize: none;">{{ post['conteudo'] }}</textarea>
+        <br><br>
+        <input type="hidden" name="id" value="{{ post['id'] }}">
+        <input type="submit" value="Salvar Alteração" name="salvar">
+    </form>
+    {% endfor %}
+</div>
+{% endblock %}
+
+novopost.html

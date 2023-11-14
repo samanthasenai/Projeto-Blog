@@ -1,0 +1,18 @@
+{% extends 'modelo.html' %}
+{% block conteudo %}
+<div id="login">
+    <form action="/acesso" method="post">
+        <h2>Acesso ao login:</h2>
+        <label>Usuário:</label><br>
+        <input type="text" name="usuario" id="usuario" required><br><br>
+        <label>Senha:</label><br>
+        <input type="password" name="senha" id="senha" required><br><br>
+
+        <br><br>
+        
+        <input type="submit" value="Acessar" name="acessar">
+        <h2>{{ msg }} </h2>
+    </form>
+</div>
+{% endblock %}
+
